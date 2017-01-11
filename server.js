@@ -45,8 +45,9 @@ app.configure('development', function () {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/task', taskroute.inserttask);
+app.get('/inserttask', taskroute.inserttask);
 app.get('/tasks', taskroute.tasks);
+app.get('/deletetasks', taskroute.deletetasks);
 
 
 http.createServer(app).listen(app.get('port'), function () {

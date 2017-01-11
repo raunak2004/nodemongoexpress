@@ -24,6 +24,13 @@ exports.inserttask = function (req, res) {
     });
 };
 
+
+exports.deletetasks = function (req, res) {
+    request.query('delete * from task', function (err, recordset) {
+        console.dir(recordset);
+    });
+};
+
 exports.tasks = function (req, res) {
     var request = new sql.Request();
     request.query('select * from task',
