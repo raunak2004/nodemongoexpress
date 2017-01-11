@@ -28,9 +28,13 @@ exports.tasks = function (req, res) {
     var request = new sql.Request();
     request.query('select * from task',
         function (err, recordset) {
-             res.render('index', {
-                title: 'Tasks',
-                book: recordset
-            });
+            if (recordset) {
+                res.render('index', {
+                    title: 'Tasks',
+                    book: recordset
+                });
+            } else {
+                res.send(err);
+            }
         });
 };
