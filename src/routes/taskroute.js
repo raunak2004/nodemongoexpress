@@ -24,7 +24,7 @@ exports.createtasktable = function (req, res) {
 exports.inserttask = function (req, res) {
     var request = new sql.Request();
     var title = req.body.title;
-    request.query("INSERT INTO task (Title) VALUES ('" + title + "')",
+    request.query("INSERT INTO task (Title) VALUES (" + title.toString() + ")",
         function (err, recordset) {
             res.send({
                 error: err,
