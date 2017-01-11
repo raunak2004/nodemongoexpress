@@ -9,19 +9,19 @@ var express = require('express'),
     path = require('path'),
     sql = require('mssql');
 
-var config = {
-    user: 'raunak2004',
-    password: 'Kelmai1986',
-    server: 'nodeexpressraunak.database.windows.net',
-    database: 'Task',
-    options: {
-        encrypt: true
-    }
-};
-
-sql.connect(config, function (err) {
-    console.log(err);
-});
+//var config = {
+//    user: 'raunak2004',
+//    password: 'Kelmai1986',
+//    server: 'nodeexpressraunak.database.windows.net',
+//    database: 'Task',
+//    options: {
+//        encrypt: true
+//    }
+//};
+//
+//sql.connect(config, function (err) {
+//    console.log(err);
+//});
 
 var taskRouter = require('./src/routes/taskroute');
 var app = express();
