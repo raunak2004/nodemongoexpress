@@ -31,7 +31,7 @@ exports.tasks = function (req, res) {
             if (recordset) {
                 res.render('index', {
                     title: 'Tasks',
-                    book: recordset
+                    tasks: recordset
                 });
             } else {
                 res.send(err);
