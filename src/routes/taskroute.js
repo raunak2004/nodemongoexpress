@@ -2,7 +2,7 @@ var express = require('express');
 var sql = require('mssql');
 
 
-exports.task = function (req, res) {
+exports.inserttask = function (req, res) {
     var table = new sql.Table('Task'); // or temporary table, e.g. #temptable 
     table.create = true;
     table.columns.add('ID', sql.Int, {
@@ -12,7 +12,7 @@ exports.task = function (req, res) {
     table.columns.add('Title', sql.VarChar(50), {
         nullable: true
     });
-    table.rows.add(1, 'test');
+    table.rows.add(Math.random(), 'test');
 
     var request = new sql.Request();
     request.bulk(table, function (err, rowCount) {
@@ -28,6 +28,9 @@ exports.tasks = function (req, res) {
     var request = new sql.Request();
     request.query('select * from task',
         function (err, recordset) {
-            res.send(recordset);
+             res.render('index', {
+                title: 'Tasks',
+                book: recordset
+            });
         });
 };

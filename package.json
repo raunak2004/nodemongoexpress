@@ -16,13 +16,17 @@
     "express"
   ],
   "dependencies": {
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.5",
     "express": "~3.1.0",
-    "jade": "*",
     "mssql": "^3.3.0"
   },
   "noAnalyze": true,
   "license": "Apache",
   "engines": {
     "node": "~0.10.0 || ~4.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0"
   }
 }

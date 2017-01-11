@@ -1,0 +1,26 @@
+{
+  "name": "WebMatrixExpressSite",
+  "description": "A simple boilerplate for building node applications on Windows Azure (or wherever)",
+  "main": "./server.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "Apache",
+  "keywords": [
+    "azure",
+    "boilerplate",
+    "express"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

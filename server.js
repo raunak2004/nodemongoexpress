@@ -28,8 +28,9 @@ var app = express();
 
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
-    app.set('views', __dirname + '/src/views');
-    app.set('view engine', 'jade');
+    app.set('views', './src/views');
+
+    app.set('view engine', 'ejs');
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
@@ -44,7 +45,7 @@ app.configure('development', function () {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/task', taskroute.task);
+app.get('/task', taskroute.inserttask);
 app.get('/tasks', taskroute.tasks);
 
 

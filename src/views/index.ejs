@@ -1,0 +1,28 @@
+<head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Todo Task</h1>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+						Tasks
+					</h3>
+                    </div>
+                    <% for(var i=0; i<tasks.length;i++){%>
+                        <div class="panel-body">
+                            <%=tasks[i].Title%>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
