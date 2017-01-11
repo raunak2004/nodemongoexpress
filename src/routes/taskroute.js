@@ -23,3 +23,11 @@ exports.task = function (req, res) {
         });
     });
 };
+
+exports.tasks = function (req, res) {
+    var request = new sql.Request();
+    request.query('select * from task',
+        function (err, recordset) {
+            res.send(recordset);
+        });
+};
