@@ -49,6 +49,7 @@ app.get('/createtasktable', taskroute.createtasktable);
 app.get('/tasks', taskroute.tasks);
 app.get('/deletetasks', taskroute.deletetasks);
 app.post('/inserttask', taskroute.inserttask);
+app.get('/droptable', taskroute.droptable);
 
 
 http.createServer(app).listen(app.get('port'), function () {
