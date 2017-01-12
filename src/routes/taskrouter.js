@@ -3,7 +3,7 @@ var sql = require('mssql');
 var us = require('underscore');
 var taskRouter = express.Router();
 
-var router = function (nav) {
+var router = function () {
 
     var fetchTasks = function (req, res) {
         var request = new sql.Request();
