@@ -30,9 +30,9 @@ exports.inserttask = function (req, res) {
     var title = req.body.title;
     request.query("INSERT INTO task (ID,Title) VALUES (" + us.random(1, 32767) + ",'" + title + "')",
         function (err, recordset) {
-            res.send({
-                error: err,
-                title: title
+            res.render('task', {
+                title: 'Tasks',
+                tasks: recordset
             });
         });
 };
@@ -52,9 +52,9 @@ exports.deletetask = function (req, res) {
     var id = req.params.id;
     request.query('delete from task where ID=' + id,
         function (err, recordset) {
-            res.send({
-                error: err,
-                rowCount: recordset
+            res.render('task', {
+                title: 'Tasks',
+                tasks: recordset
             });
         });
 };
