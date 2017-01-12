@@ -74,7 +74,7 @@ exports.tasks = function (req, res) {
     request.query('select * from task',
         function (err, recordset) {
             if (recordset) {
-                res.render('index', {
+                res.render('task', {
                     title: 'Tasks',
                     tasks: recordset
                 });
