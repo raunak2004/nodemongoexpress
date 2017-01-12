@@ -22,7 +22,7 @@ exports.createtasktable = function (req, res) {
 
 
 exports.inserttask = function (req, res) {
-    var request = new sql.Request();
+//    var request = new sql.Request();
     var title = req.body.title;
     res.send({
         title: title,
