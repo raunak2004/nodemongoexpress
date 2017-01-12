@@ -12,6 +12,15 @@ a {
     display: inline-block;
 }
 
+.create-div {
+    display: inline-block;
+}
+
+.title-div {
+    width: 92%;
+    display: inline-block;
+}
+
 input,
 button {
     border: 0;
