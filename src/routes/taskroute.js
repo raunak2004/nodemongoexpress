@@ -1,11 +1,11 @@
 var express = require('express');
 var sql = require('mssql');
-
+var us = require('underscore');
 
 exports.createtasktable = function (req, res) {
     var table = new sql.Table('Task'); // or temporary table, e.g. #temptable 
     table.create = true;
-    table.columns.add('ID', sql.GUID, {
+    table.columns.add('ID', sql.Int, {
         nullable: false,
         primary: true
     });
@@ -28,7 +28,7 @@ exports.createtasktable = function (req, res) {
 exports.inserttask = function (req, res) {
     var request = new sql.Request();
     var title = req.body.title;
-    request.query("INSERT INTO task (Title) VALUES ('" + title + "')",
+    request.query("INSERT INTO task (ID,Title) VALUES (" + us.random(1, 32767) + ",'" + title + "')",
         function (err, recordset) {
             res.send({
                 error: err,
