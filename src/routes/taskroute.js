@@ -28,7 +28,8 @@ exports.inserttask = function (req, res) {
         function (err, recordset) {
             res.send({
                 error: err,
-                rowCount: recordset
+                rowCount: recordset,
+                title: title
             });
         });
 };
