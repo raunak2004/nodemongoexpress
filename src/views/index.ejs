@@ -23,7 +23,11 @@
                     </form>
                     <% for(var i=0; i<tasks.length;i++){%>
                         <div class="panel-body">
-                            <%=tasks[i].Title%>
+                            <span><%=tasks[i].Title%></span>
+                            <span>
+                                <form name="deletetask" action="/deletetask/<%=tasks[i].ID%>" method="delete">
+                                <input type="submit" value="X"></form>
+                            </span>
                         </div>
                         <%}%>
                 </div>

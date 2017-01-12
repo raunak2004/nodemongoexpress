@@ -47,6 +47,18 @@ exports.deletetasks = function (req, res) {
     });
 };
 
+exports.deletetask = function (req, res) {
+    var request = new sql.Request();
+    var id = req.params.id;
+    request.query('delete from task where ID=' + id,
+        function (err, recordset) {
+            res.send({
+                error: err,
+                rowCount: recordset
+            });
+        });
+};
+
 exports.droptable = function (req, res) {
     var request = new sql.Request();
     request.query('drop table task', function (err, recordset) {
