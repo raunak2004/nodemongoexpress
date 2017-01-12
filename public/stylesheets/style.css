@@ -7,8 +7,14 @@ a {
     color: #00B7FF;
 }
 
-.task-form {
+.wrapper {
+    border: 1px solid #000;
     display: inline-block;
+}
+
+input,
+button {
+    border: 0;
 }
 
 .panel-primary {
