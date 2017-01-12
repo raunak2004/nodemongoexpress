@@ -11,6 +11,15 @@ var express = require('express'),
     sql = require('mssql'),
     bodyparser = require('body-parser');
 
+var nav = [{
+    Link: '/Books',
+    Text: 'Book'
+    }, {
+    Link: '/Authors',
+    Text: 'Author'
+    }];
+var bookRouter = require('./src/routes/testroute')(nav);
+
 var config = {
     user: 'raunak2004',
     password: 'Kelmai1986',
@@ -21,30 +30,20 @@ var config = {
     }
 };
 
-sql.connect(config, function (err) {
-    console.log(err);
-});
+//sql.connect(config, function (err) {
+//    console.log(err);
+//});
 
 var app = express();
 
-app.configure(function () {
-    app.set('port', process.env.PORT || 3000);
-    app.set('views', './src/views');
+app.set('port', process.env.PORT || 3000);
+app.set('views', './src/views');
 
-    app.set('view engine', 'ejs');
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(bodyparser.json());
-    app.use(bodyparser.urlencoded());
-    app.use(express.methodOverride());
-    app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function () {
-    app.use(express.errorHandler());
-});
+app.set('view engine', 'ejs');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/Books', bookRouter);
 
 app.get('/', routes.index);
 app.get('/users', user.list);
