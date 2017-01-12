@@ -22,17 +22,15 @@ exports.createtasktable = function (req, res) {
 
 
 exports.inserttask = function (req, res) {
-    //    var request = new sql.Request();
-//    console.dir(req.body);
-    res.send(req.body.title);
-    //    request.query("INSERT INTO task (Title) VALUES ('test task 1')",
-    //        function (err, recordset) {
-    //            res.send({
-    //                error: err,
-    //                rowCount: recordset,
-    //                title: title
-    //            });
-    //        });
+    var request = new sql.Request();
+    var title = req.body.title;
+    request.query("INSERT INTO task (Title) VALUES ('" + title + "')",
+        function (err, recordset) {
+            res.send({
+                error: err,
+                title: title
+            });
+        });
 };
 
 exports.deletetasks = function (req, res) {
