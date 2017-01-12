@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="/lib/underscore/underscore.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>Todo Task</h1>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+						Tasks
+					</h3>
+                    </div>
+                    <form name="inserttask" action="/inserttask" method="post">
+                        <input name="title" id="title">
+                        <input type="submit" value="Create Task">
+                    </form>
+                    <% for(var i=0; i<tasks.length;i++){%>
+                        <div class="panel-body">
+                            <span><%=tasks[i].Title%></span>
+                            <span>
+<!--                                <form name="deletetask" action="/deletetask/<%=tasks[i].ID%>" method="delete">-->
+          <a data-confirm="Are you sure?" data-method="delete" href="/deletetask/<%=tasks[i].ID%>" rel="nofollow">X</a>
+<!--                                <input type="delete" value="X"></form>-->
+                            </span>
+                        </div>
+                        <%}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
