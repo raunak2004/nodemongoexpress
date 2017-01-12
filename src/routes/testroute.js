@@ -74,6 +74,11 @@ var router = function (nav) {
                 });
         });
 
+    bookRouter.route('/')
+        .get(function (req, res) {
+            fetchTasks(req, res);
+        });
+    
     return bookRouter;
 }
 
