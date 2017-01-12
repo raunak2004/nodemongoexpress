@@ -30,9 +30,9 @@ var config = {
     }
 };
 
-//sql.connect(config, function (err) {
-//    console.log(err);
-//});
+sql.connect(config, function (err) {
+    console.log(err);
+});
 
 var app = express();
 
