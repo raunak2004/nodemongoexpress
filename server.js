@@ -8,7 +8,8 @@ var express = require('express'),
     taskroute = require('./src/routes/taskroute'),
     http = require('http'),
     path = require('path'),
-    sql = require('mssql');
+    sql = require('mssql'),
+    bodyparser = require('body-parser');
 
 var config = {
     user: 'raunak2004',
@@ -34,6 +35,8 @@ app.configure(function () {
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
+    app.use(bodyparser.json());
+    app.use(bodyparser.urlencoded());
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
