@@ -78,7 +78,7 @@ var router = function () {
         .get(function (req, res) {
             fetchTasks(req, res);
         });
-    
+
     return taskRouter;
 }
 

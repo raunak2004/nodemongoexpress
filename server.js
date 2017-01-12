@@ -10,7 +10,7 @@ var express = require('express'),
     sql = require('mssql'),
     bodyparser = require('body-parser');
 
-var taskRouter = require('./src/routes/taskrouter');
+var taskRouter = require('./src/routes/taskrouter')();
 
 var config = {
     user: 'raunak2004',
