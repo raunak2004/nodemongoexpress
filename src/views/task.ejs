@@ -16,7 +16,7 @@
 						Tasks
 					</h3>
                     </div>
-                    <form name="inserttask" action="/inserttask" method="post">
+                    <form name="inserttask" action="/tasks/inserttask" method="post">
                         <div>
                             <div class="title-div">
                                 <input class="form-control" name="title" id="title">
@@ -31,7 +31,7 @@
                         <div class="panel-body">
                             <span><%=tasks[i].Title%></span>
                             <span>
-                            <a data-method="delete" href="/deletetask/<%=tasks[i].ID%>" >X</a>
+                            <a data-method="delete" href="/tasks/deletetask/<%=tasks[i].ID%>" >X</a>
                             </span>
                         </div>
                         <%}%>
