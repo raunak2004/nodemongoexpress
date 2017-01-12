@@ -1,6 +1,22 @@
 var express = require('express');
 var sql = require('mssql');
 var us = require('underscore');
+var fetchTasks;
+
+fetchTasks = function(req, res){
+     var request = new sql.Request();
+    request.query('select ID,Title from task',
+        function (err, recordset) {
+            if (recordset) {
+                res.render('task', {
+                    title: 'Tasks',
+                    tasks: recordset
+                });
+            } else {
+                res.send(err);
+            }
+        });
+}
 
 exports.createtasktable = function (req, res) {
     var table = new sql.Table('Task'); // or temporary table, e.g. #temptable 
@@ -30,10 +46,7 @@ exports.inserttask = function (req, res) {
     var title = req.body.title;
     request.query("INSERT INTO task (ID,Title) VALUES (" + us.random(1, 32767) + ",'" + title + "')",
         function (err, recordset) {
-            res.render('task', {
-                title: 'Tasks',
-                tasks: recordset
-            });
+           fetchTasks(req, res);
         });
 };
 
@@ -52,10 +65,7 @@ exports.deletetask = function (req, res) {
     var id = req.params.id;
     request.query('delete from task where ID=' + id,
         function (err, recordset) {
-            res.render('task', {
-                title: 'Tasks',
-                tasks: recordset
-            });
+           fetchTasks(req, res);
         });
 };
 
@@ -70,16 +80,5 @@ exports.droptable = function (req, res) {
 };
 
 exports.tasks = function (req, res) {
-    var request = new sql.Request();
-    request.query('select * from task',
-        function (err, recordset) {
-            if (recordset) {
-                res.render('task', {
-                    title: 'Tasks',
-                    tasks: recordset
-                });
-            } else {
-                res.send(err);
-            }
-        });
+    fetchTasks(req, res);
 };
