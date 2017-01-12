@@ -1,7 +1,7 @@
 var express = require('express');
 var sql = require('mssql');
 var us = require('underscore');
-var bookRouter = express.Router();
+var taskRouter = express.Router();
 
 var router = function (nav) {
 
@@ -20,7 +20,7 @@ var router = function (nav) {
             });
     };
 
-    bookRouter.route('/createtasktable')
+    taskRouter.route('/createtasktable')
         .get(function (req, res) {
             var table = new sql.Table('Task'); // or temporary table, e.g. #temptable 
             table.create = true;
@@ -43,7 +43,7 @@ var router = function (nav) {
             });
         });
 
-    bookRouter.route('/inserttask')
+    taskRouter.route('/inserttask')
         .post(function (req, res) {
             var request = new sql.Request();
             var title = req.body.title;
@@ -53,7 +53,7 @@ var router = function (nav) {
                 });
         });
 
-    bookRouter.route('/deletetasks')
+    taskRouter.route('/deletetasks')
         .get(function (req, res) {
             var request = new sql.Request();
             request.query('delete from task', function (err, recordset) {
@@ -64,7 +64,7 @@ var router = function (nav) {
             });
         });
 
-    bookRouter.route('/deletetask/:id')
+    taskRouter.route('/deletetask/:id')
         .get(function (req, res) {
             var request = new sql.Request();
             var id = req.params.id;
@@ -74,12 +74,12 @@ var router = function (nav) {
                 });
         });
 
-    bookRouter.route('/')
+    taskRouter.route('/')
         .get(function (req, res) {
             fetchTasks(req, res);
         });
     
-    return bookRouter;
+    return taskRouter;
 }
 
 module.exports = router;

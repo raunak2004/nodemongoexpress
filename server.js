@@ -18,7 +18,7 @@ var nav = [{
     Link: '/Authors',
     Text: 'Author'
     }];
-var bookRouter = require('./src/routes/testroute')(nav);
+var taskRouter = require('./src/routes/testroute')(nav);
 
 var config = {
     user: 'raunak2004',
@@ -43,16 +43,16 @@ app.set('view engine', 'ejs');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/Books', bookRouter);
+app.use('/tasks', taskRouter);
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/createtasktable', taskroute.createtasktable);
-app.get('/tasks', taskroute.tasks);
-app.get('/deletetasks', taskroute.deletetasks);
-app.post('/inserttask', taskroute.inserttask);
-app.get('/droptable', taskroute.droptable);
-app.get('/deletetask/:id', taskroute.deletetask);
+//app.get('/createtasktable', taskroute.createtasktable);
+//app.get('/tasks', taskroute.tasks);
+//app.get('/deletetasks', taskroute.deletetasks);
+//app.post('/inserttask', taskroute.inserttask);
+//app.get('/droptable', taskroute.droptable);
+//app.get('/deletetask/:id', taskroute.deletetask);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
