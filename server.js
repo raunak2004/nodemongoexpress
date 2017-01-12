@@ -53,7 +53,7 @@ app.get('/tasks', taskroute.tasks);
 app.get('/deletetasks', taskroute.deletetasks);
 app.post('/inserttask', taskroute.inserttask);
 app.get('/droptable', taskroute.droptable);
-app.delete('/deletetask/:id', taskroute.deletetask);
+app.get('/deletetask/:id', taskroute.deletetask);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
