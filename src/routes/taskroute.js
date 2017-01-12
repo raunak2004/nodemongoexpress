@@ -5,7 +5,7 @@ var sql = require('mssql');
 exports.createtasktable = function (req, res) {
     var table = new sql.Table('Task'); // or temporary table, e.g. #temptable 
     table.create = true;
-    table.columns.add('ID', sql.Guid, {
+    table.columns.add('ID', sql.guid, {
         nullable: false,
         primary: true
     });
