@@ -14,8 +14,8 @@ var express = require('express'),
     passport = require('passport');
 
 var common = {
-//    'mongodbUrl' : 'mongodb://localhost:27017/libraryapp',
-    'mongodbUrl': 'mongodb://nodeexpress:T8bJfkGNqlnoqOIecShcnszBbxnGojch6Q2LA317mI6aykvnbEA3izT8Kq5YqSCe6hYK8OhhMJXSSD5rF0OkDg==@nodeexpress.documents.azure.com:10250/?ssl=true'
+    'mongodbUrl' : 'mongodb://localhost:27017/libraryapp',
+//    'mongodbUrl': 'mongodb://nodeexpress:T8bJfkGNqlnoqOIecShcnszBbxnGojch6Q2LA317mI6aykvnbEA3izT8Kq5YqSCe6hYK8OhhMJXSSD5rF0OkDg==@nodeexpress.documents.azure.com:10250/?ssl=true'
 };
 
 //sql based route task route
