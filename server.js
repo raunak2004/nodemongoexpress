@@ -8,11 +8,22 @@ var express = require('express'),
     http = require('http'),
     path = require('path'),
     sql = require('mssql'),
-    bodyparser = require('body-parser');
+    bodyparser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
+    passport = require('passport');
 
+var common = {
+//    'mongodbUrl' : 'mongodb://localhost:27017/libraryapp',
+    'mongodbUrl': 'mongodb://nodeexpress:T8bJfkGNqlnoqOIecShcnszBbxnGojch6Q2LA317mI6aykvnbEA3izT8Kq5YqSCe6hYK8OhhMJXSSD5rF0OkDg==@nodeexpress.documents.azure.com:10250/?ssl=true'
+};
+
+//sql based route task route
 var taskRouter = require('./src/routes/taskrouter')();
-var adminRouter = require('./src/routes/adminrouter')();
-var bookRouter = require('./src/routes/bookrouter')();
+//mongo db based route passing mongodb url
+var adminRouter = require('./src/routes/adminrouter')(common);
+var bookRouter = require('./src/routes/bookrouter')(common);
+var authRouter = require('./src/routes/authrouter')(common);
 
 var config = {
     user: 'raunak2004',
@@ -34,14 +45,19 @@ app.set('port', process.env.PORT || 3000);
 //setting up views folder
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
+//checks body and creates req.body object
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
+app.use(session({secret: 'library'}));
+require('./src/config/passport')(app);
 
 //Individual routers
 app.use('/tasks', taskRouter);
 app.use('/admin', adminRouter);
 app.use('/books', bookRouter);
+app.use('/auth', authRouter);
 app.get('/', routes.index);
 app.get('/users', user.list);
 

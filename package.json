@@ -18,10 +18,14 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.5.5",
     "express": "^4.13.4",
+    "express-session": "^1.14.2",
     "mongodb": "^2.2.20",
     "mssql": "^3.3.0",
+    "passport": "^0.3.2",
+    "passport-windowsauth": "^2.0.0",
     "underscore": "^1.8.3"
   },
   "noAnalyze": true,
