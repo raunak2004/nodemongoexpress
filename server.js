@@ -51,7 +51,7 @@ app.use(bodyparser.urlencoded());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(session({secret: 'library'}));
-require('./src/config/passport')(app);
+//require('./src/config/passport')(app);
 
 //Individual routers
 app.use('/tasks', taskRouter);
