@@ -20,6 +20,7 @@
     "bootstrap": "^3.3.7",
     "ejs": "^2.5.5",
     "express": "^4.13.4",
+    "mongodb": "^2.2.20",
     "mssql": "^3.3.0",
     "underscore": "^1.8.3"
   },

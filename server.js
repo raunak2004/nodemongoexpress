@@ -11,6 +11,8 @@ var express = require('express'),
     bodyparser = require('body-parser');
 
 var taskRouter = require('./src/routes/taskrouter')();
+var adminRouter = require('./src/routes/adminrouter')();
+var bookRouter = require('./src/routes/bookrouter')();
 
 var config = {
     user: 'raunak2004',
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Individual routers
 app.use('/tasks', taskRouter);
+app.use('/admin', adminRouter);
+app.use('/books', bookRouter);
 app.get('/', routes.index);
 app.get('/users', user.list);
 
